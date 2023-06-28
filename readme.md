@@ -1,7 +1,7 @@
 1. Downlaod the main.js file or add
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cjcoaustralia/exit-intent-popup@1.1.0/dist/main.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cjcoaustralia/exit-intent-popup@1.2.0/dist/main.js"></script>
 ```
 
 2. Add below script for Appbar
@@ -12,6 +12,7 @@
         heading: "Read This Before You go",
         subheading: "We noticed you were going somewhere. We wanted to show you this last minute pop-up.",
         image: "https://source.unsplash.com/IHpUgFDn7zU/2000x2000",
+        unsplash: "bNEga8u4kUs",
         full_screen: true,
         radius: "rounded",
         day_interval: false,

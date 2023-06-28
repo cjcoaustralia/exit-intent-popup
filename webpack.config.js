@@ -2,6 +2,7 @@ const path = require("path")
 const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     mode: "development",
@@ -59,5 +60,6 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin(),
+        new Dotenv()
     ],
 }

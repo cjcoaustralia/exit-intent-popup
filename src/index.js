@@ -27,6 +27,9 @@ const exitIntentPopupHandle = (data) =>{
     var day_interval = data.day_interval ? data.day_interval : false;
     var intervalInMills = (data.day_delay ? data.day_delay : 0) * 24 * 60 * 60 * 1000;
 
+    var unsplashId = data.unsplash;
+    const accessKey = process.env.UNSPLASH_API_KEY;
+
 
     // create popup
     var docBody = document.body
@@ -91,8 +94,24 @@ const exitIntentPopupHandle = (data) =>{
     // create image
     var colImage = document.createElement('img')
     colImage.classList.add('cjco-ei-popup-img');
-    colImage.setAttribute('src', imgUrl)
-    colImage.setAttribute('srcset', imgUrl)
+
+    if(unsplashId){
+        fetch(`https://api.unsplash.com/photos/${unsplashId}?client_id=${accessKey}`)
+        .then(response => response.json())
+        .then(data => {
+            const imageUrl = data.urls.raw + '?w=1800&h=1800';;
+            imgUrl = imageUrl;
+            colImage.setAttribute('src', imgUrl)
+            colImage.setAttribute('srcset', imgUrl)
+        })
+        .catch(error => {
+            console.log('Error:', error);
+        });
+    }else{
+        colImage.setAttribute('src', imgUrl)
+        colImage.setAttribute('srcset', imgUrl)
+    }
+    
     imageWrapper.append(colImage);
 
     // content wrapper
